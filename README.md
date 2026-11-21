@@ -10,7 +10,7 @@ CATCLAW is a browser-based 2D action platformer. Play as a cat, fight through en
 
 The game runs directly in a modern browser. No installation, account, build tools, or backend are required.
 
-> The public game page becomes available after GitHub Pages is enabled for this repository under **Settings → Pages**.
+The live page becomes available after the one-time GitHub Pages setup described below.
 
 ## Controls
 
@@ -32,7 +32,7 @@ Touch controls are included for supported mobile screens.
 - Normal and Punishing difficulty modes.
 - Movement, jumping, double-jumping, claw attacks, dodge rolls, and a meow stun ability.
 - Enemies that patrol, detect the player, and fire projectiles.
-- Health, elapsed time, level, death-count, and best-time HUD.
+- Health, elapsed-time, level, death-count, and best-time HUD.
 - Quick die-and-retry flow.
 - Synthesized sound effects with a mute control.
 - Responsive canvas and on-screen touch controls.
@@ -56,22 +56,32 @@ This is a client-side game. It does not currently include player accounts, onlin
 
 No package installation or build step is required.
 
-## Deploy with GitHub Pages
+## Publish with GitHub Pages
+
+This repository includes an automatic deployment workflow at `.github/workflows/deploy.yml`.
+
+### One-time setup
 
 1. Open this repository's **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select branch **main** and folder **/(root)**.
-4. Click **Save**.
-5. Wait for GitHub Pages to finish publishing, then open the URL above.
+2. Under **Build and deployment → Source**, select **GitHub Actions**.
+3. Open the **Actions** tab and check the **Deploy CATCLAW to GitHub Pages** workflow.
+4. Once the workflow completes successfully, visit **https://arishlinuxuser.github.io/Catclaw/**.
 
-The entry file must remain named `index.html` in the repository root.
+### Future updates
+
+Every push to the `main` branch automatically triggers a deployment. You can also start a deployment manually from the Actions tab using **Run workflow**.
+
+The workflow publishes the repository root, where `index.html` is the entry point.
 
 ## Project structure
 
 ```text
 Catclaw/
 ├── index.html
-└── README.md
+├── README.md
+└── .github/
+    └── workflows/
+        └── deploy.yml
 ```
 
 ## Project status
